@@ -7,15 +7,18 @@ authors = ["Wei Tang <hi@that.world>"]
 repository = "https://github.com/paritytech/libsecp256k1"
 keywords = ["crypto", "ECDSA", "secp256k1", "bitcoin", "no_std"]
 edition = "2018"
-resolver = "2"
+resolver = "2" # When resolver = "2" is specified in Cargo.toml, a different feature resolver is used which uses a different algorithm for unifying features.
+              # details to check: https://doc.rust-lang.org/cargo/reference/resolver.html#feature-resolver-version-2
 
 [dependencies]
-libsecp256k1-core = { version = "0.3.0", path = "core", default-features = false }
+libsecp256k1-core = { version = "0.3.0", path = "core", default-features = false } # default-features = false # do not include the default features of the dependency crate, and optionally
+                         # cherry-pick individual features
 arrayref = "0.3"
 rand = { version = "0.8", default-features = false }
 digest = "0.9"
 base64 = { version = "0.13", default-features = false }
-hmac-drbg = { version = "0.3", optional = true }
+hmac-drbg = { version = "0.3", optional = true } # optional=true makes the dependency optional. to be selected based on feature specified.
+                                                  # in this case, the feature hmac will enable hmac-drbg
 sha2 = { version = "0.9", optional = true, default-features = false }
 typenum = { version = "1.12", optional = true }
 serde = { version = "1.0.104", features = ["derive"], default-features = false }

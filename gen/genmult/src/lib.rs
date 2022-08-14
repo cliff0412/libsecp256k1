@@ -6,6 +6,7 @@ use std::{
     io::{Error, Write},
 };
 
+/// pre-computations for optimizing calculation of [`n*G`].
 pub fn generate_to(file: &mut File) -> Result<(), Error> {
     let context = ECMultGenContext::new_boxed();
     let prec = context.inspect_raw().as_ref();

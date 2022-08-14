@@ -8,5 +8,8 @@ edition = "2018"
 repository = "https://github.com/paritytech/libsecp256k1"
 keywords = ["crypto", "ECDSA", "secp256k1", "bitcoin", "no_std"]
 
+[package.metadata.docs.rs]
+rustdoc-args = [ "--html-in-header", "katex-header.html" ]
+
 [dependencies]
 libsecp256k1-core = { version = "0.3.0", path = "../../core" }

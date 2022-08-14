@@ -1,3 +1,13 @@
+# description
+
+this repo is forked from https://github.com/paritytech/libsecp256k1.
+for learning crypto and rust purpose.
+
+in benches folder, test feature is only available in nightly version. need to switch to nightly version
+```
+rustup override set nightly
+```
+
 # SECP256K1 implementation in pure Rust
 
 * [Cargo](https://crates.io/crates/libsecp256k1)
